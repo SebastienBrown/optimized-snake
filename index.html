@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Perfect Snake</title>
+
+    <link rel="stylesheet" href="style.css">
+     
+  </head>
+  <body id="space">
+
+    <script src="tiles.js">
+    </script>
+    <!-- Loads in Javascript -->
+
+    <div class="entire">
+    <h1>Perfect Snake</h1>
+    <!-- Title -->
+    <div class="introText">
+    <p>Welcome to our final project webpage for COSC-225: Algorithms & Visualization. For this project, we chose to investigate 
+      how to engineer and visualize a <b>perfect snake game</b>. In this context, perfect <b>does not imply</b> that this is the fastest solution,
+       but rather that the snake is always <b>guaranteed</b> to grow long enough to <b>fill out at least n-1 squares of a grid of n squares</b> (in some cases, it may
+       even fill up the entire grid!). This is accomplished by calculating safe <b>Hamiltonian cycles</b> (whenever possible) that allow the snake to travel along the entire
+      grid without self-intersecting itself, where the cycles are <b>dependent on the grid dimensions</b>. Below is some useful informatiom regarding user interface functionality, and additional information on our algorithmic approach is available <a href="Exposition.html">here</a>!:</p>
+      <ul class="description" id="p2">
+        <li>The user may <b>set the speed</b> of the snake within the "Snake Speed" text box, and click the neighboring button to apply the change.</li>
+        <li>The user may <b>set the width and height</b> of the grid (in squares) using xWidth and yWidth, then resize it using the button.</li>
+        <li>Clicking "Step" illustrates <b>a single step</b> of the algorithm, moving the snake by one square along its path.</li>
+        <li>Clicking "Animate" illustrates each stage of the algorithm at regular intervals <b>until it terminates</b>.</li>
+        <li>Clicking "Reset" <b>removes all apples and snakes from the grid</b> and <b>clears the input text boxes</b> for Snake Speed, xWidth and yWidth.</li>
+      </ul>
+    </div>
+
+      <div id="grid">
+        <!-- Grid Space -->
+      </div>
+      <div class="bar">
+      <button class="actionButton" id="button1" onclick="ch.reset()"><b>Reset</b></button> <button class="actionButton"  id="button2" onclick="ch.step()"><b>Step</b></button> <button class="actionButton"  id="button3" onclick="ch.animate()"><b>Animate</b></button>
+      </div>
+      <div class="bar">
+      <input type="text" class="inputBox" id="speed" placeholder="Snake Speed">
+      <button id="button4" class="actionButton" onclick="ch.speedChange()"><b>Change Speed</b></button> 
+      </div>
+      <div class="bar">
+      <input type="text" class="inputBox" id="xCoord" placeholder="xWidth">
+      <input type="text" class="inputBox" id="yCoord" placeholder="yWidth">
+      <button id="button5" class="actionButton" onclick="ch.gridChange()"><b>Resize Grid</b></button> 
+      </div>
+      <script>
+        window.onload = () => {
+      draw(8,8);
+        }
+      </script>   
+    </div>
+</body></html>
