@@ -142,7 +142,7 @@ h1{
   }
 
   /*sets column formatting*/
-  #column2{
+  .column2{
     width:46%;
     float:right;
     padding-left:10px;

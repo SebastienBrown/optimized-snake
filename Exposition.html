@@ -23,21 +23,21 @@
   </div>
     <div class="cont" id="cont1">
       <div class="gridImgColumn" id="column1a"></div>
-      <div id="column2"><u>Case 1: Even by Even Grid & Even by Odd Grid</u> </br>
+      <div class="column2"><u>Case 1: Even by Even Grid & Even by Odd Grid</u> <br>
         In this case, there is a <b>clearly defined Hamiltonian path</b> that can be identified that returns the snake to its start point after passing over every tile, ensuring that all apples can be obtained so that the snake may reach its maximal length. 
         In this case, since a Hamiltonian path exists, the snake will continue to grow <b>until it fills the grid</b>, at which point the head and tail will invariably collide and end the visualization.
       </div>
     </div>
     <div class="cont" id="cont2">
       <div class="gridImgColumn" id="column1b"></div>
-      <div id="column2"><u>Case 2: Odd by Even Grid</u><br>
+      <div class="column2"><u>Case 2: Odd by Even Grid</u><br>
       Similarly to the previous case, there exists a Hamiltonian path that allows the snake to reach its maximal size without risk of self-intersection, although it is different to the one identified previously. As a result of this, <b>the snake may once again fill the entire grid</b>
       before it invariably collides with its own tail once there are no more available tiles onto which to grow longer. 
       </div>
     </div>
     <div class="cont" id="cont3">
       <div class="gridImgColumn" id="column1c"></div>
-      <div id="column2"><u>Case3: Odd by Odd Grid</u><br>
+      <div class="column2"><u>Case3: Odd by Odd Grid</u><br>
         <b>No Hamiltonian cycle can be identified</b> on any odd by odd grid, since there is eventually a point at which the remaining path diverges and each possible path (indicated in orange and green on the figure to the left) lead directly to the  starting tile. Therefore, we <b>identify two alternating paths</b> which allow any apple to be eaten in at most two grid traversals. 
         This means that a snake may <b>at most fill n-1 tiles of a grid of n tiles</b>, as its head is guaranteed to hit the end of its tail completes the other possible path from the previous traversal.
       </div>
@@ -61,7 +61,7 @@
   </div>
     <div class="cont" id="cont5">
       <div class="greedyImgColumn" id="column1d"></div>
-      <div id="column2">In this starting configuration, the red node represents the apple, the black node is the snake head and the green is its body. A greedy algorithm would calculate the 
+      <div class="column2">In this starting configuration, the red node represents the apple, the black node is the snake head and the green is its body. A greedy algorithm would calculate the 
         shortest path to the apple then immediately follow it and turn left, since there is not immediate risk of collision. However, this would trap the snake within an <b>enclosed</b> 3x3 box, where it 
         would be guaranteed to self-intersect, thus ending the game. In this instance, if the snake were shorter a game ending scenario would not be guaranteed, which further underscores the unpredictability of this scenario.
         To utilize a greedy approach, we would have to check and ensure that the snake <b>did not section off isolated sections of the grid</b>, while also adjusting for snake size, which would be an increasingly important factor for smaller grid sizes.
@@ -70,7 +70,7 @@
     </div>
     <div class="cont" id="cont6">
       <div class="greedyImgColumn" id="column1e"></div>
-      <div id="column2"> In this starting configuration, we can clearly see that the shortest path from the snake's head to the apple is to continue <b>straight ahead</b>. However, this would clearly cause a self-intersection. Therefore, any greedy algorithm
+      <div class="column2"> In this starting configuration, we can clearly see that the shortest path from the snake's head to the apple is to continue <b>straight ahead</b>. However, this would clearly cause a self-intersection. Therefore, any greedy algorithm
         would have to calculate the shortest path between the snake head and apple while treating the grid tiles already occupied by the snake as inaccessible. This poses a clear problem in this case, as there is <b>no existing path between the snake head and apple</b>
         at this snapshot in time that fits this criteria. Hence, a greedy path-finding algorithm would fail at this point in time. A perfect implementation would consider not only the present position of each snake tile, but also their future states as the head moves, but
         accounting for all the associated variables would be excessively complicated, and more easily accomplished through the use of reinforcement learning, which would be outside the scope of this course. Even then, <b>any deviation from the calculated path for large snake sizes</b> would all but guarantee a game loss.
@@ -82,7 +82,7 @@
     <h2>III-Other Project Challenges Encountered</h2>
     <ul>
       <li>Displaying the image of an apple in the grid was unexpectedly tricky, and required sustained experimenting with the <b>background-Image attribute</b> to eventually come to fruition.</li>
-      <li>Since we did not not explicitly style snake body block but rather set their appearance using a single iterating head pointer, it was tricky to <b>change only the head's appearance</b> for visualization purposes.</li>
+      <li>Since we did not not explicitly style snake body block but rather set their appearance using a single iterating head pointer, it was tricky to set <b>each of the snake's tiles</b> to be a slightly different color.</li>
       <li>It took us a while to <b>rigorously determine what the optimal path was for any input grid</b>, and once that question was answered, constructing the path array itself was also a time-consuming task.</li>
       <li>Resizing the grid was also a non-trivial task that was ultimately solved with a few lines of code. Our grid would overflow when calling the draw() method again, and we spent time tweaking the css properties of the grid to prevent this issue. We the  realized that draw() was actually <b>appending extra divs to the grid element</b>
         without clearing the previous version, which we solved through a combination of <b>local variable declaration</b> (rather than global) and the <b>removal of child elements of the grid element</b> before calling the draw function again.   </li>
